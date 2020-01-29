@@ -17,11 +17,13 @@
         <img id="logo" class="logo" src="gifOS_UI 3/assets/gifOF_logo.png" width="90" height="48">
         <div class="nav">
             <button class="boton1 crear">Crear Guifos</button>
-            <div>
-                <button class="boton1 elegir">Elegir tema</button><button class="boton1 lista"><img id="lista" style="filter: invert(0);" src="gifOS_UI 3/assets/dropdown.svg" alt="Elegir tema"></button>
-                <div class="temas" >
-                    <button class="day">Sailor Day</button>
-                    <button class="night">Sailor Night</button>
+            <div class="elegirTemas">
+                <span>
+                    <button class="boton1 elegir" onclick="mostrar()">Elegir tema</button><button class="boton1 lista" onclick="mostrar()"><img id="lista" style="filter: invert(0);" src="gifOS_UI 3/assets/dropdown.svg" alt="Elegir tema"></button>
+                </span>
+                <div class="temas" id="temas">
+                    <button class="day" onclick="day()">Sailor Day</button>
+                    <button class="night" onclick="night()">Sailor Night</button>
                 </div>
             </div>
             <div class="misGuifos"><a href="#">Mis Guifos</a></div>
@@ -32,7 +34,7 @@
             <div class="barraTitulo">Buscar</div>
             <form name="buscador">
                 <input id="buscar" type="search" oninput="comprobar()" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
-                <button id="buscador"><img id="lupa" src="gifOS_UI 3/assets/lupa_inactive.svg" alt="Buscar">Buscar</button>
+                <button id="buscador" onclick="buscar()"><img id="lupa" src="gifOS_UI 3/assets/lupa_inactive.svg" alt="Buscar"><span id="texto">Buscar</span></button>
             </form>
             <div id="sugerenciasBuscador" style="visibility: hidden;" class="sugerenciasBuscador">
                 <button class="opc">Resultado de búsqueda sugerido</button>

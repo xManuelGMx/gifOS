@@ -1,4 +1,4 @@
-function darkMode(){
+function night(){
     let root = document.documentElement;
     // ---colorFondo------------------------------------------------------------------
     let colorFondoActual = root.style.getPropertyValue('--colorFondo');
@@ -156,14 +156,31 @@ function darkMode(){
     }
 }
 function comprobar(){
-    let root = document.documentElement;
     let input = document.forms.buscador.buscar.value;
     if(input.length > 0){
         document.getElementById("sugerenciasBuscador").style.setProperty('visibility',"visible");
+        document.getElementById("buscador").style.setProperty('background-color',"var(--colorBoton1)");
+        document.getElementById("lupa").style.setProperty('filter',"contrast(0) brightness(0)");
+        document.getElementById("texto").style.setProperty('color',"var(--colorTexto)");
 
-        document.getElementById("buscador").style.setProperty('background-color',"var(--colorBoton1)");        
+        function buscar() {
+            document.getElementById("sugerenciasBuscador").style.removeProperty('visibility');
+            input = 0;
+        }
     }else{
         document.getElementById("sugerenciasBuscador").style.setProperty('visibility',"hidden");
         document.getElementById("buscador").style.setProperty('background-color',"var(--fondoVentana)");
+        document.getElementById("lupa").style.setProperty('filter',"none");
+        document.getElementById("texto").style.removeProperty('color');
+    }
+}
+function mostrar() {
+    let menuTemasActual = document.getElementById("temas").style.display;
+    let menuTemasMostrar = "flex";
+    let menuTemasEsconder = "none";
+    if(menuTemasActual !== menuTemasMostrar){
+        document.getElementById("temas").style.setProperty('display',menuTemasMostrar);
+    }else{
+        document.getElementById("temas").style.setProperty('display',menuTemasEsconder);
     }
 }

@@ -73,22 +73,37 @@ section{
   outline: 1px dotted #110038;
   outline-offset: -3px;
 }
+div.elegirTemas{
+  position: relative;
+  display: flex;
+  width: max-content;
+}
 div.temas{
+  position: absolute;
+  top: 2.25em;
   width: 100%;
   height: 6.38em;
   background: var(--fondoVentana);
   box-shadow: inset -2px -2px 0 0 var(--colorVentanaBorde1), inset 2px 2px 0 0 var(--colorBorde2);
-  display: flex;
+  display: none;
   justify-content: center;
   flex-direction: column;
   padding: 3%;
+  z-index: 1;
 }
 div.temas button{
   margin: 2%;
   height: 2.25em;
+}
+.day{
   background: #FFF4FD;
   border: 1px solid #CCA6C9;
   box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+}
+button.night{
+  background: #F0F0F0;
+  border: 1px solid #808080;
+  box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
 }
 .crear{
   width: 9em;
@@ -100,23 +115,33 @@ div.temas button{
 button.lista{
   width: 2.25em;
   border-left: none;
-  margin-right: 3%;
 }
-.misGuifos{
+div.misGuifos{
   position: relative;
-  width: 5.5em;
-  height: 1.13em;
+  display: flex;
+  align-items: center;
+  width: 5.94em;
+  height: 2em;
   color: var(--colorTexto);
   letter-spacing: 0;
   line-height: 18px;
 }
-.misGuifos::after{
+div.misGuifos a{
+  height: min-content;
+}
+div.misGuifos a::after{
   content: '';
   position: absolute;
   border: 1px solid var(--colorTexto);
-  bottom: 0;
+  top: 1.5em;
   left: .04em;
   width: .4em;
+}
+.misGuifos:hover{
+  border: 1px dotted #110038;
+}
+.misGuifos:active{
+  opacity: .5;
 }
 header{
   display: flex;
@@ -130,7 +155,7 @@ header img.logo{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-width: 300px;
+  min-width: 450px;
 }
 .buscador .barraTitulo{
   box-shadow: inset 2px 2px 0 0 var(--colorBorde2), inset -2px 0 0 var(--colorVentanaBorde1);
@@ -199,7 +224,12 @@ div.buscador{
 .sugerenciasBuscador .opc:hover, .sugerenciasBuscador .opc:focus{
   outline: 1px dotted #110038;
   outline-offset: -3px;
+  background-color: #dbdbdb;
 }
+.sugerenciasBuscador .opc:not(:hover){
+  background-color: #F0F0F0;
+}
+
 .barraDivision{
   background: #FFFAFE;
   border: 1px solid var(--colorDivisionBorde);
@@ -235,6 +265,10 @@ div.gif{
   background-image: url(https://images.unsplash.com/photo-1557683311-eac922347aa1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=715&q=80);
   background-size: cover;
   box-shadow: inset -2px -2px 0 0 var(--colorGifBorde1), inset 2px 2px 0 0 var(--colorBorde2);
+}
+.gif:hover .img, .gif:hover .img button{
+  outline: 1px dotted #110038;
+  outline-offset: -3px;
 }
 section.sugerencia button{
   position: absolute;
