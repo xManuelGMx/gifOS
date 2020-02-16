@@ -1,179 +1,4 @@
-function night(){
-    let root = document.documentElement;
-    // ---colorFondo------------------------------------------------------------------
-    let colorFondoActual = root.style.getPropertyValue('--colorFondo');
-    let colorFondo1 = "#FEF4FD";
-    let colorFondo2 = "#110938";
-    if(colorFondoActual !== colorFondo2){
-        root.style.setProperty('--colorFondo',colorFondo2);        
-    }else{
-        root.style.setProperty('--colorFondo',colorFondo1);
-    }
-    // ---colorBarraSecundario------------------------------------------------------------------
-    let colorBarraSecundarioActual = root.style.getPropertyValue('--colorBarraSecundario');
-    let colorBarraSecundario1 = "#F7C9F3";
-    let colorBarraSecundario2 = "#EE3EFE";
-    if(colorBarraSecundarioActual !== colorBarraSecundario2){
-        root.style.setProperty('--colorBarraSecundario',colorBarraSecundario2);        
-    }else{
-        root.style.setProperty('--colorBarraSecundario',colorBarraSecundario1);
-    }
-    // ---colorBarraPrimario------------------------------------------------------------------
-    let colorBarraPrimarioActual = root.style.getPropertyValue('--colorBarraPrimario');
-    let colorBarraPrimario1 = "#4180F6";
-    let colorBarraPrimario2 = "#2E32FB";
-    if(colorBarraPrimarioActual !== colorBarraPrimario2){
-        root.style.setProperty('--colorBarraPrimario',colorBarraPrimario2);        
-    }else{
-        root.style.setProperty('--colorBarraPrimario',colorBarraPrimario1);
-    }
-    // ---colorBoton1------------------------------------------------------------------
-    let colorBoton1Actual = root.style.getPropertyValue('--colorBoton1');
-    let colorBoton11 = "#F7C9F3";
-    let colorBoton12 = "#EE3EFE";
-    if(colorBoton1Actual !== colorBoton12){
-        root.style.setProperty('--colorBoton1',colorBoton12);        
-    }else{
-        root.style.setProperty('--colorBoton1',colorBoton11);
-    }
-    // ---colorBoton1Borde1------------------------------------------------------------------
-    let colorBoton1Borde1Actual = root.style.getPropertyValue('--colorBoton1Borde1');
-    let colorBoton1Borde11 = "#997D97";
-    let colorBoton1Borde12 = "#A72CB3";
-    if(colorBoton1Borde1Actual !== colorBoton1Borde12){
-        root.style.setProperty('--colorBoton1Borde1',colorBoton1Borde12);        
-    }else{
-        root.style.setProperty('--colorBoton1Borde1',colorBoton1Borde11);
-    }
-    // ---colorVentanaBorde1------------------------------------------------------------------
-    let colorVentanaBorde1Actual = root.style.getPropertyValue('--colorVentanaBorde1');
-    let colorVentanaBorde11 = "#B4B4B4";
-    let colorVentanaBorde12 = "#8F8F8F";
-    if(colorVentanaBorde1Actual !== colorVentanaBorde12){
-        root.style.setProperty('--colorVentanaBorde1',colorVentanaBorde12);        
-    }else{
-        root.style.setProperty('--colorVentanaBorde1',colorVentanaBorde11);
-    }
-    // ---colorBoton2Borde1------------------------------------------------------------------
-    let colorBoton2Borde1FondoActual = root.style.getPropertyValue('--colorBoton2Borde1');
-    let colorBoton2Borde1Fondo1 = "#284F99";
-    let colorBoton2Borde1Fondo2 = "#2124B3";
-    if(colorBoton2Borde1FondoActual !== colorBoton2Borde1Fondo2){
-        root.style.setProperty('--colorBoton2Borde1',colorBoton2Borde1Fondo2);        
-    }else{
-        root.style.setProperty('--colorBoton2Borde1',colorBoton2Borde1Fondo1);
-    }
-    // ---colorBoton2Fondo------------------------------------------------------------------
-    let colorBoton2FondoActual = root.style.getPropertyValue('--colorBoton2Fondo');
-    let colorBoton2Fondo1 = "#4180F6";
-    let colorBoton2Fondo2 = "#2E32FB";
-    if(colorBoton2FondoActual !== colorBoton2Fondo2){
-        root.style.setProperty('--colorBoton2Fondo',colorBoton2Fondo2);        
-    }else{
-        root.style.setProperty('--colorBoton2Fondo',colorBoton2Fondo1);
-    }
-    // ---colorDivisionBorde------------------------------------------------------------------
-    let colorDivisionBordeActual = root.style.getPropertyValue('--colorDivisionBorde');
-    let colorDivisionBorde1 = "#E6BBE2";
-    let colorDivisionBorde2 = "#2E32FB";
-    if(colorDivisionBordeActual !== colorDivisionBorde2){
-        root.style.setProperty('--colorDivisionBorde',colorDivisionBorde2);        
-    }else{
-        root.style.setProperty('--colorDivisionBorde',colorDivisionBorde1);
-    }
-    // ---colorDivisionBorde2------------------------------------------------------------------
-    let colorDivisionBorde2Actual = root.style.getPropertyValue('--colorDivisionBorde2');
-    let colorDivisionBorde21 = "#80687D";
-    let colorDivisionBorde22 = "#110038";
-    if(colorDivisionBorde2Actual !== colorDivisionBorde22){
-        root.style.setProperty('--colorDivisionBorde2',colorDivisionBorde22);        
-    }else{
-        root.style.setProperty('--colorDivisionBorde2',colorDivisionBorde21);
-    }
-    // ---colorGifBorde1------------------------------------------------------------------
-    let colorGifBorde1Actual = root.style.getPropertyValue('--colorGifBorde1');
-    let colorGifBorde11 = "#B4B4B4";
-    let colorGifBorde12 = "#5C5C5C";
-    if(colorGifBorde1Actual !== colorGifBorde12){
-        root.style.setProperty('--colorGifBorde1',colorGifBorde12);        
-    }else{
-        root.style.setProperty('--colorGifBorde1',colorGifBorde11);
-    }
-    // ---colorTexto------------------------------------------------------------------
-    let colorTextoActual = root.style.getPropertyValue('--colorTexto');
-    let colorTexto1 = "#110038";
-    let colorTexto2 = "#FFFFFF";
-    if(colorTextoActual !== colorTexto2){
-        root.style.setProperty('--colorTexto',colorTexto2);        
-    }else{
-        root.style.setProperty('--colorTexto',colorTexto1);
-    }
-    // ---colorTextoBoton------------------------------------------------------------------
-    let colorTextoBotonActual = root.style.getPropertyValue('--colorTextoBoton');
-    let colorTextoBoton1 = "#B4B4B4";
-    let colorTextoBoton2 = "#8F8F8F";
-    if(colorTextoBotonActual !== colorTextoBoton2){
-        root.style.setProperty('--colorTextoBoton',colorTextoBoton2);        
-    }else{
-        root.style.setProperty('--colorTextoBoton',colorTextoBoton1);
-    }
-    // ---fondoVentana------------------------------------------------------------------
-    let fondoVentanaActual = root.style.getPropertyValue('--fondoVentana');
-    let fondoVentana1 = "#E6E6E6";
-    let fondoVentana2 = "#B4B4B4";
-    if(fondoVentanaActual !== fondoVentana2){
-        root.style.setProperty('--fondoVentana',fondoVentana2);        
-    }else{
-        root.style.setProperty('--fondoVentana',fondoVentana1);
-    }
-    
-    // ---Imágenes------------------------------------------------------------------
-    let imgLogoActual = document.getElementById("logo").getAttribute("src");
-    let imgLogo1 = "gifOS_UI 3/assets/gifOF_logo.png";
-    let imgLogo2 = "gifOS_UI 3/assets/gifOF_logo_dark.png";
-    if(imgLogoActual === imgLogo1){
-        document.getElementById("logo").src = imgLogo2;
-    }else{
-        document.getElementById("logo").src = imgLogo1;
-    }
-
-    let imgListaActual = document.getElementById("lista").style.filter;
-    let imgLista1 = "invert(0)";
-    let imgLista2 = "invert(1)";
-    if(imgListaActual !== imgLista2){
-        document.getElementById("lista").style.setProperty('filter',imgLista2);        
-    }else{
-        document.getElementById("lista").style.setProperty('filter',imgLista1);
-    }
-
-    let imgLupaActual = document.getElementById("lupa").style.filter;
-    let imgLupaa1 = "contrast(1)";
-    let imgLupaa2 = "contrast(0.3)";
-    if(imgLupaActual !== imgLupaa2){
-        document.getElementById("lupa").style.setProperty('filter',imgLupaa2);        
-    }else{
-        document.getElementById("lupa").style.setProperty('filter',imgLupaa1);
-    }
-}
-function comprobar(){
-    let input = document.forms.buscador.buscar.value;
-    if(input.length > 0){
-        document.getElementById("sugerenciasBuscador").style.setProperty('visibility',"visible");
-        document.getElementById("buscador").style.setProperty('background-color',"var(--colorBoton1)");
-        document.getElementById("lupa").style.setProperty('filter',"contrast(0) brightness(0)");
-        document.getElementById("texto").style.setProperty('color',"var(--colorTexto)");
-
-        function buscar() {
-            document.getElementById("sugerenciasBuscador").style.removeProperty('visibility');
-            input = 0;
-        }
-    }else{
-        document.getElementById("sugerenciasBuscador").style.setProperty('visibility',"hidden");
-        document.getElementById("buscador").style.setProperty('background-color',"var(--fondoVentana)");
-        document.getElementById("lupa").style.setProperty('filter',"none");
-        document.getElementById("texto").style.removeProperty('color');
-    }
-}
+// Menú desplegable de los temas
 function mostrar() {
     let menuTemasActual = document.getElementById("temas").style.display;
     let menuTemasMostrar = "flex";
@@ -183,4 +8,144 @@ function mostrar() {
     }else{
         document.getElementById("temas").style.setProperty('display',menuTemasEsconder);
     }
+}
+// Tema oscuro de la página (swicth)
+function night(){
+    let root = document.documentElement;
+    // ---colorFondo------------------------------------------------------------------
+    root.style.setProperty('--colorFondo',"#110938");
+    // ---colorBarraSecundario------------------------------------------------------------------
+    root.style.setProperty('--colorBarraSecundario',"#EE3EFE");
+    // ---colorBarraPrimario------------------------------------------------------------------
+    root.style.setProperty('--colorBarraPrimario',"#2E32FB");
+    // ---colorBoton1------------------------------------------------------------------
+    root.style.setProperty('--colorBoton1',"#EE3EFE");
+    // ---colorBoton1Borde1------------------------------------------------------------------
+    root.style.setProperty('--colorBoton1Borde1',"#A72CB3");
+    // ---colorVentanaBorde1------------------------------------------------------------------
+    root.style.setProperty('--colorVentanaBorde1',"#8F8F8F");
+    // ---colorBoton2Borde1------------------------------------------------------------------
+    root.style.setProperty('--colorBoton2Borde1',"#2124B3");
+    // ---colorBoton2Fondo------------------------------------------------------------------
+    root.style.setProperty('--colorBoton2Fondo',"#2E32FB");
+    // ---colorDivisionBorde------------------------------------------------------------------
+    root.style.setProperty('--colorDivisionBorde',"#2E32FB");
+    // ---colorDivisionBorde2------------------------------------------------------------------
+    root.style.setProperty('--colorDivisionBorde2',"#110038");
+    // ---colorGifBorde1------------------------------------------------------------------
+    root.style.setProperty('--colorGifBorde1',"#5C5C5C");
+    // ---colorTexto------------------------------------------------------------------
+    root.style.setProperty('--colorTexto',"#FFFFFF");
+    // ---colorTextoBoton------------------------------------------------------------------
+    root.style.setProperty('--colorTextoBoton',"#8F8F8F");
+    // ---fondoVentana------------------------------------------------------------------
+    root.style.setProperty('--fondoVentana',"#B4B4B4");
+    // ---Imágenes------------------------------------------------------------------
+    document.getElementById("logo").src = "gifOS_UI 3/assets/gifOF_logo_dark.png";
+    document.getElementById("lista").style.setProperty('filter',"invert(1)");
+    document.getElementById("lupa").style.setProperty('filter',"contrast(0.3)");
+}
+function day() {
+    let root = document.documentElement;
+    // ---colorFondo------------------------------------------------------------------
+    root.style.setProperty('--colorFondo',"#FEF4FD");
+    // ---colorBarraSecundario------------------------------------------------------------------
+    root.style.setProperty('--colorBarraSecundario',"#F7C9F3");
+    // ---colorBarraPrimario------------------------------------------------------------------
+    root.style.setProperty('--colorBarraPrimario',"#4180F6");
+    // ---colorBoton1------------------------------------------------------------------
+    root.style.setProperty('--colorBoton1',"#F7C9F3");
+    // ---colorBoton1Borde1------------------------------------------------------------------
+    root.style.setProperty('--colorBoton1Borde1',"#997D97");
+    // ---colorVentanaBorde1------------------------------------------------------------------
+    root.style.setProperty('--colorVentanaBorde1',"#B4B4B4");
+    // ---colorBoton2Borde1------------------------------------------------------------------
+    root.style.setProperty('--colorBoton2Borde1',"#284F99");
+    // ---colorBoton2Fondo------------------------------------------------------------------
+    root.style.setProperty('--colorBoton2Fondo',"#4180F6");
+    // ---colorDivisionBorde------------------------------------------------------------------
+    root.style.setProperty('--colorDivisionBorde',"#E6BBE2");
+    // ---colorDivisionBorde2------------------------------------------------------------------
+    root.style.setProperty('--colorDivisionBorde2',"#80687D");
+    // ---colorGifBorde1------------------------------------------------------------------
+    root.style.setProperty('--colorGifBorde1',"#B4B4B4");
+    // ---colorTexto------------------------------------------------------------------
+    root.style.setProperty('--colorTexto',"#110038");
+    // ---colorTextoBoton------------------------------------------------------------------
+    root.style.setProperty('--colorTextoBoton',"#B4B4B4");
+    // ---fondoVentana------------------------------------------------------------------
+    root.style.setProperty('--fondoVentana',"#E6E6E6");
+    // ---Imágenes------------------------------------------------------------------
+    document.getElementById("logo").src = "gifOS_UI 3/assets/gifOF_logo.png";
+    document.getElementById("lista").style.setProperty('filter',"invert(0)");
+    document.getElementById("lupa").style.setProperty('filter',"contrast(1)");
+}
+// Mostar sugerencias de búsqueda
+function comprobar(){
+    let input = document.forms.buscador.buscar.value;
+    if(input.length > 0){
+        document.getElementById("sugerenciasBuscador").style.setProperty('visibility',"visible");
+        document.getElementById("buscador").style.setProperty('background-color',"var(--colorBoton1)");
+        document.getElementById("lupa").style.setProperty('filter',"contrast(0) brightness(0)");
+        document.getElementById("texto").style.setProperty('color',"var(--colorTexto)");
+    }else{
+        document.getElementById("sugerenciasBuscador").style.setProperty('visibility',"hidden");
+        document.getElementById("buscador").style.setProperty('background-color',"var(--fondoVentana)");
+        document.getElementById("lupa").style.setProperty('filter',"none");
+        document.getElementById("texto").style.removeProperty('color');
+    }
+}
+// Buscador de gifs
+async function buscarGifs(){
+    let input = document.forms.buscador.buscar.value;
+    // Redireccionar página
+    if(window.location.pathname !== "/gifOS/busqueda.html"){
+        window.location="busqueda.html";
+    }else{
+        document.querySelector('.barraDivision').innerText = "Resultado de búsqueda: "+input;
+    }
+    // GET de los gifs al API
+    await fetch("https://api.giphy.com/v1/gifs/search?q="+input+"&api_key=p2qSK25QMBISYURSDjGYHQUzTn1gSLYD&limit=20")
+    .then(res => res.json())
+    .then(res => res.data)
+    .then(array => array.map(function(e){ return e.id}))
+    .then(urls =>{
+        let i = 0;
+        urls.forEach(id => {
+            let img = document.createElement('img');
+            img.src = "https://media.giphy.com/media/"+id+"/giphy.gif";
+            img.style.position = "absolute";
+            img.style.width = "100%";
+            img.style.height = "100%";
+            img.style.zIndex = 0;
+            document.querySelectorAll("div.img")[i].appendChild(img);
+            i++;
+            console.log(`Elemento [${id},${i}]`)
+        });
+        console.log("-----------FIN-----------");
+    })
+    .catch(console.error);
+}
+//Ir a crear gif
+function crearGif() {
+    if(window.location.pathname !== "/gifOS/creacionGif.html"){
+        window.location = "creacionGif.html";
+    }
+}
+// Devuelta al index.html
+function inicio() {
+    window.location = "index.html";
+}
+//Capturar video desde el navegador
+function grabar() {
+    navigator.mediaDevices.getUserMedia({
+        audio: false,
+        video: {
+            height: { max: 480 }
+        }
+    })
+    .then(function(stream) {
+        video.srcObject = stream;
+        video.play();
+    })
 }

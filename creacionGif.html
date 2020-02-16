@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="Styles/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,700&display=swap" rel="stylesheet">
+    <title>gif.OS</title>
+</head>
+<body>
+    <div class="primer barraTitulo">¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de
+      visitas: 12.765.803</div>
+    <header>
+        <img id="logo" class="logo" onclick="inicio()" src="gifOS_UI 3/assets/gifOF_logo.png" width="90" height="48">
+        <div class="nav">
+            <button class="boton1 crear" onclick="crearGif()">Crear Guifos</button>
+            <div class="elegirTemas">
+                <span>
+                    <button class="boton1 elegir" onclick="mostrar()">Elegir tema</button><button class="boton1 lista" onclick="mostrar()"><img id="lista" style="filter: invert(0);" src="gifOS_UI 3/assets/dropdown.svg" alt="Elegir tema"></button>
+                </span>
+                <div class="temas" id="temas">
+                    <button class="day" onclick="day()">Sailor Day</button>
+                    <button class="night" onclick="night()">Sailor Night</button>
+                </div>
+            </div>
+            <div class="misGuifos"><a href="#">Mis Guifos</a></div>
+        </div>
+    </header>
+    <section class="grabar">
+        <video src="" width="500" height="300"></video>
+    </section>
+    <script src="javascript.js"></script>
+</body>
+</html>
