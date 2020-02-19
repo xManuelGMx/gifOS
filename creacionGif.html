@@ -11,25 +11,53 @@
 <body>
     <div class="primer barraTitulo">¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de
       visitas: 12.765.803</div>
-    <header>
-        <img id="logo" class="logo" onclick="inicio()" src="gifOS_UI 3/assets/gifOF_logo.png" width="90" height="48">
-        <div class="nav">
-            <button class="boton1 crear" onclick="crearGif()">Crear Guifos</button>
-            <div class="elegirTemas">
-                <span>
-                    <button class="boton1 elegir" onclick="mostrar()">Elegir tema</button><button class="boton1 lista" onclick="mostrar()"><img id="lista" style="filter: invert(0);" src="gifOS_UI 3/assets/dropdown.svg" alt="Elegir tema"></button>
-                </span>
-                <div class="temas" id="temas">
-                    <button class="day" onclick="day()">Sailor Day</button>
-                    <button class="night" onclick="night()">Sailor Night</button>
-                </div>
-            </div>
-            <div class="misGuifos"><a href="#">Mis Guifos</a></div>
-        </div>
+    <header style="width: min-content;">
+        <img src="img/arrow.svg" alt="Atrás" class="atras"><img id="logo" class="logo" onclick="inicio()" src="img/gifOF_logo.png" width="90" height="48" alt="Gif.OS">
     </header>
     <section class="grabar">
-        <video src="" width="500" height="300"></video>
+        <div class="container" style="display: block;">
+            <div class="barraTitulo" style="margin: .2%; width: auto;">Crear Guifos</div>
+            <img src="img/window img.png" alt="Window" class="window">
+            <div class="info">
+                <p>
+                    <span class="title">Aquí podrás crear tus propios guifos</span>
+                    <span class="line">
+                        Crear tu <span class="guifo">guifo</span> es muy fácil, graba cualquier imagen con tu cámara y obtén guifos personalizados. Los pasos para crear tu guifo son:<br>
+                    </span>
+                    <span class="line">
+                        <span class="numero">1)</span> Dar permisos de acceso a la cámara (sólo por el tiempo de uso)<br>
+                    </span>
+                    <span class="line">
+                        <span class="numero">2)</span> Capturar tu momento guifo<br>
+                    </span>
+                    <span class="line">
+                        <span class="numero">3)</span> Revisar el momento<br>
+                    </span>
+                    <span class="line">
+                        <span class="numero">4)</span> Listo para subir y compartir!<br>
+                    </span>
+                    <span class="line">
+                        ¿Quieres comenzar a crear tu <span class="guifo">guifo</span> ahora?<br>
+                    </span>
+                </p>
+            </div>
+            <div class="botones">
+                <button class="cancelar" onclick="cancelar()">Cancelar</button>
+                <button class="comenzar" onclick="grabar()">Comenzar</button>
+            </div>
+        </div>
+        <div class="captura" style="display: none;">
+            <div class="barraTitulo" style="margin: .2%; width: auto;">Un Chequeo Antes de Empezar<img src="img/button3.svg" alt="Botón eliminar" width="16" height="16"></div>
+            <video></video>
+            <div class="capturar">
+                <button><img src="img/camera.svg" alt="Capturar"></button><button>Capturar</button>
+            </div>
+        </div>
+    </section>
+    <section class="mis">
+        <div class="barraDivision">Mis guifos</div>
     </section>
     <script src="JavaScript/javascript.js"></script>
+    <script src="JavaScript/creacionGifs.js"></script>
 </body>
 </html>

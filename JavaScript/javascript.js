@@ -41,7 +41,7 @@ function night(){
     // ---fondoVentana------------------------------------------------------------------
     root.style.setProperty('--fondoVentana',"#B4B4B4");
     // ---Imágenes------------------------------------------------------------------
-    document.getElementById("logo").src = "gifOS_UI 3/assets/gifOF_logo_dark.png";
+    document.getElementById("logo").src = "img/gifOF_logo_dark.png";
     document.getElementById("lista").style.setProperty('filter',"invert(1)");
     document.getElementById("lupa").style.setProperty('filter',"contrast(0.3)");
 }
@@ -76,7 +76,7 @@ function day() {
     // ---fondoVentana------------------------------------------------------------------
     root.style.setProperty('--fondoVentana',"#E6E6E6");
     // ---Imágenes------------------------------------------------------------------
-    document.getElementById("logo").src = "gifOS_UI 3/assets/gifOF_logo.png";
+    document.getElementById("logo").src = "img/gifOF_logo.png";
     document.getElementById("lista").style.setProperty('filter',"invert(0)");
     document.getElementById("lupa").style.setProperty('filter',"contrast(1)");
 }
@@ -134,17 +134,4 @@ function crearGif() {
 // Devuelta al index.html
 function inicio() {
     window.location = "index.html";
-}
-//Capturar video desde el navegador
-function grabar() {
-    navigator.mediaDevices.getUserMedia({
-        audio: false,
-        video: {
-            height: { max: 480 }
-        }
-    })
-    .then(function(stream) {
-        video.srcObject = stream;
-        video.play();
-    })
 }
