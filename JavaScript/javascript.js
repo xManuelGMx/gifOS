@@ -40,10 +40,24 @@ function night(){
     root.style.setProperty('--colorTextoBoton',"#8F8F8F");
     // ---fondoVentana------------------------------------------------------------------
     root.style.setProperty('--fondoVentana',"#B4B4B4");
+    // ---Menú temas------------------------------------------------------------------
+    let botonDay = document.querySelector("button.day");
+    botonDay.style.background = "#F0F0F0";
+    botonDay.style.border = "1px solid #808080";
+    botonDay.style.boxShadow = "inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF";
+    let botonNight = document.querySelector("button.night");
+    botonNight.style.background = "#2E32FB";
+    botonNight.style.border = "1px solid rgba(51,53,143,0.20)";
+    botonNight.style.boxShadow = "inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF";
     // ---Imágenes------------------------------------------------------------------
     document.getElementById("logo").src = "img/gifOF_logo_dark.png";
     document.getElementById("lista").style.setProperty('filter',"invert(1)");
-    document.getElementById("lupa").style.setProperty('filter',"contrast(0.3)");
+    let input = document.forms.buscador.buscar.value;
+    if(input.length > 0){
+        document.getElementById("lupa").style.setProperty('filter',"contrast(0.3)");
+    }else{
+        document.getElementById("lupa").style.setProperty('filter',"contrast(1)");
+    }
 }
 function day() {
     let root = document.documentElement;
@@ -75,10 +89,22 @@ function day() {
     root.style.setProperty('--colorTextoBoton',"#B4B4B4");
     // ---fondoVentana------------------------------------------------------------------
     root.style.setProperty('--fondoVentana',"#E6E6E6");
+    // ---Menú temas------------------------------------------------------------------
+    let botonNight = document.querySelector("button.night");
+    botonNight.style.background = "#F0F0F0";
+    botonNight.style.border = "1px solid #808080";
+    botonNight.style.boxShadow = "inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF";
+    let botonDay = document.querySelector("button.day");
+    botonDay.removeAttribute("style");
     // ---Imágenes------------------------------------------------------------------
     document.getElementById("logo").src = "img/gifOF_logo.png";
     document.getElementById("lista").style.setProperty('filter',"invert(0)");
-    document.getElementById("lupa").style.setProperty('filter',"contrast(1)");
+    let input = document.forms.buscador.buscar.value;
+    if(input.length > 0){
+        document.getElementById("lupa").style.setProperty('filter',"contrast(0) brightness(0)");
+    }else{
+        document.getElementById("lupa").style.setProperty('filter',"contrast(1)");
+    }
 }
 // Mostar sugerencias de búsqueda
 function comprobar(){

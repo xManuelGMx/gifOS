@@ -78,6 +78,7 @@ div.elegirTemas{
   display: flex;
   width: max-content;
 }
+/* Menú temas */
 div.temas{
   position: absolute;
   top: 2.25em;
@@ -95,7 +96,7 @@ div.temas button{
   margin: 2%;
   height: 2.25em;
 }
-.day{
+button.day{
   background: #FFF4FD;
   border: 1px solid #CCA6C9;
   box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
@@ -105,6 +106,7 @@ button.night{
   border: 1px solid #808080;
   box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
 }
+
 .crear{
   width: 9em;
   margin-right: 3%;
@@ -138,7 +140,7 @@ div.misGuifos a::after{
   width: .4em;
 }
 .misGuifos:hover{
-  border: 1px dotted #110038;
+  border: 1px dotted var(--colorTexto);
 }
 .misGuifos:active{
   opacity: .5;
