@@ -10,7 +10,9 @@ function mostrar() {
     }
 }
 // Tema oscuro de la página (swicth)
+var light = true;
 function night(){
+    light = false;
     let root = document.documentElement;
     // ---colorFondo------------------------------------------------------------------
     root.style.setProperty('--colorFondo',"#110938");
@@ -54,12 +56,13 @@ function night(){
     document.getElementById("lista").style.setProperty('filter',"invert(1)");
     let input = document.forms.buscador.buscar.value;
     if(input.length > 0){
-        document.getElementById("lupa").style.setProperty('filter',"contrast(0.3)");
+        document.getElementById("lupa").style.setProperty('filter',"contrast(1) brightness(2)");
     }else{
-        document.getElementById("lupa").style.setProperty('filter',"contrast(1)");
+        document.getElementById("lupa").style.setProperty('filter',"contrast(0) brightness(1.1)");
     }
 }
 function day() {
+    light = true;
     let root = document.documentElement;
     // ---colorFondo------------------------------------------------------------------
     root.style.setProperty('--colorFondo',"#FEF4FD");
@@ -112,13 +115,21 @@ function comprobar(){
     if(input.length > 0){
         document.getElementById("sugerenciasBuscador").style.setProperty('visibility',"visible");
         document.getElementById("buscador").style.setProperty('background-color',"var(--colorBoton1)");
-        document.getElementById("lupa").style.setProperty('filter',"contrast(0) brightness(0)");
         document.getElementById("texto").style.setProperty('color',"var(--colorTexto)");
+        if(light){
+            document.getElementById("lupa").style.setProperty('filter',"contrast(0) brightness(0)");
+        }else{
+            document.getElementById("lupa").style.setProperty('filter',"contrast(0) brightness(2)");
+        }
     }else{
         document.getElementById("sugerenciasBuscador").style.setProperty('visibility',"hidden");
         document.getElementById("buscador").style.setProperty('background-color',"var(--fondoVentana)");
-        document.getElementById("lupa").style.setProperty('filter',"none");
         document.getElementById("texto").style.removeProperty('color');
+        if(light){
+            document.getElementById("lupa").style.setProperty('filter',"none");
+        }else{
+            document.getElementById("lupa").style.setProperty('filter',"contrast(0) brightness(1.1)");
+        }
     }
 }
 // Buscador de gifs

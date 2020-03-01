@@ -43,14 +43,17 @@
             </div>
             <div class="botones">
                 <button class="cancelar" onclick="cancelar()">Cancelar</button>
-                <button class="comenzar" onclick="grabar()">Comenzar</button>
+                <button class="comenzar" onclick="capturar()">Comenzar</button>
             </div>
         </div>
         <div class="captura" style="display: none;">
             <div class="barraTitulo" style="margin: .2%; width: auto;">Un Chequeo Antes de Empezar<img src="img/button3.svg" alt="Botón eliminar" width="16" height="16"></div>
             <video></video>
             <div class="capturar">
-                <button onclick="capturar()"><img src="img/camera.svg" alt="Capturar"></button><button onclick="capturar()">Capturar</button>
+                <button onclick="grabar()"><img src="img/camera.svg" alt="Capturar"></button><button onclick="grabar()">Capturar</button>
+            </div>
+            <div class="duracion" style="display: none;">
+                <div id="screen">00:00:00:00</div>
             </div>
         </div>
     </section>

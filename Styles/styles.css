@@ -398,6 +398,7 @@ div.captura{
   box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 div.captura .barraTitulo{
   display: flex;
@@ -419,6 +420,7 @@ div.captura div.capturar{
   align-self: flex-end;
   margin: 1.5%;
   display: flex;
+  position: relative;
 }
 div.captura div.capturar button{
   background: #F7C9F3;
@@ -434,4 +436,25 @@ div.captura div.capturar button:nth-child(1){
 }
 div.captura div.capturar button:nth-child(2){
   width: 9em;
+}
+div.captura div.duracion{
+  position: absolute;
+  bottom: 3.2%;
+  left: 1.6%;
+  width: 7.75em;
+  height: 2.25em;
+  background: #FFFFFF;
+  border: 1px solid #979797;
+  box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div.captura div.duracion #screen{
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
+  width: 5.63em;
+  height: 1.38em;
 }
