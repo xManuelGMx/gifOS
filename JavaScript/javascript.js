@@ -56,9 +56,9 @@ function night(){
     document.getElementById("lista").style.setProperty('filter',"invert(1)");
     let input = document.forms.buscador.buscar.value;
     if(input.length > 0){
-        document.getElementById("lupa").style.setProperty('filter',"contrast(1) brightness(2)");
+        document.getElementById("lupa").setAttribute("src", "img/lupa_light.svg");
     }else{
-        document.getElementById("lupa").style.setProperty('filter',"contrast(0) brightness(1.1)");
+        document.getElementById("lupa").setAttribute("src", "img/Combined Shape.svg");
     }
 }
 function day() {
@@ -104,9 +104,9 @@ function day() {
     document.getElementById("lista").style.setProperty('filter',"invert(0)");
     let input = document.forms.buscador.buscar.value;
     if(input.length > 0){
-        document.getElementById("lupa").style.setProperty('filter',"contrast(0) brightness(0)");
+        document.getElementById("lupa").setAttribute("src", "img/lupa.svg");
     }else{
-        document.getElementById("lupa").style.setProperty('filter',"contrast(1)");
+        document.getElementById("lupa").setAttribute("src", "img/lupa_inactive.svg");
     }
 }
 // Mostar sugerencias de búsqueda
@@ -117,49 +117,19 @@ function comprobar(){
         document.getElementById("buscador").style.setProperty('background-color',"var(--colorBoton1)");
         document.getElementById("texto").style.setProperty('color',"var(--colorTexto)");
         if(light){
-            document.getElementById("lupa").style.setProperty('filter',"contrast(0) brightness(0)");
+            document.getElementById("lupa").setAttribute("src", "img/lupa.svg");
         }else{
-            document.getElementById("lupa").style.setProperty('filter',"contrast(0) brightness(2)");
+            document.getElementById("lupa").setAttribute("src", "img/lupa_light.svg");
         }
     }else{
         document.getElementById("sugerenciasBuscador").style.setProperty('visibility',"hidden");
         document.getElementById("buscador").style.setProperty('background-color',"var(--fondoVentana)");
         document.getElementById("texto").style.removeProperty('color');
         if(light){
-            document.getElementById("lupa").style.setProperty('filter',"none");
+            document.getElementById("lupa").setAttribute("src", "img/lupa_inactive.svg");
         }else{
-            document.getElementById("lupa").style.setProperty('filter',"contrast(0) brightness(1.1)");
+            document.getElementById("lupa").setAttribute("src", "img/Combined Shape.svg");
         }
-    }
-}
-// Buscador de gifs
-async function buscarGifs(){
-    localStorage.setItem("Input",document.forms.buscador.buscar.value);
-    let input = localStorage.getItem("Input");
-    // Redireccionar página
-    if(window.location.pathname !== "/busqueda.html"){
-        window.location="busqueda.html";
-    }else{
-        document.querySelector('.barraDivision').innerText = "Resultado de búsqueda: "+input;
-        // GET de los gifs al API
-        await fetch("https://api.giphy.com/v1/gifs/search?q="+input+"&api_key=p2qSK25QMBISYURSDjGYHQUzTn1gSLYD&limit=20")
-        .then(res => res.json())
-        .then(res => res.data)
-        .then(array => array.map(function(e){ return e.id}))
-        .then(urls =>{
-            let i = 0;
-            urls.forEach(id => {
-                let img = document.createElement('img');
-                img.src = "https://media.giphy.com/media/"+id+"/giphy.gif";
-                img.style.position = "absolute";
-                img.style.width = "100%";
-                img.style.height = "100%";
-                img.style.zIndex = 0;
-                document.querySelectorAll("div.img")[i].appendChild(img);
-                i++;
-            });
-        })
-        .catch(console.error);
     }
 }
 //Ir a crear gif
@@ -169,6 +139,39 @@ function crearGif() {
     }
 }
 // Devuelta al index.html
-function inicio() {
+function index() {
     window.location = "index.html";
+    console.log("inicio");
 }
+function inicio() {
+    document.querySelector("body").scrollIntoView({
+        behavior: "smooth"
+    })
+}
+// Historial de búsqueda
+let historial = [];
+function guardar() {
+    let box = document.querySelector("div.historial");
+    let boton = document.createElement("button");
+    boton.classList.add("boton2");
+    if (historial.length < 20) {
+        historial.unshift(input)
+    }else{
+        historial.pop();
+        historial.unshift(input);
+    }
+    boton.innerText = "#"+input;
+    boton.setAttribute("onclick", "volverBuscar('"+input+"')");
+    box.appendChild(boton);
+}
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+        if (window.location.pathname === "/index.html" || window.location.pathname === "/") {
+            document.querySelector("button.top").style.transform = "translateY(0px)"
+        }
+    }else{
+        if (window.location.pathname === "/index.html" || window.location.pathname === "/") {
+            document.querySelector("button.top").style.transform = "translateY(100px)"
+        }
+    }
+})

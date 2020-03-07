@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="Styles/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,700&display=swap" rel="stylesheet">
+    <title>gif.OS</title>
+</head>
+<body>
+    <div class="primer barraTitulo">¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de
+      visitas: 12.765.803</div>
+      <header>
+        <img id="logo" class="logo" src="img/gifOF_logo.png" width="90" height="48" alt="Gif.OS" onclick="index()">
+        <div class="nav">
+            <button class="boton1 crear" onclick="crearGif()">Crear Guifos</button>
+            <div class="elegirTemas">
+                <span>
+                    <button class="boton1 elegir" onclick="mostrar()">Elegir tema</button><button class="boton1 lista" onclick="mostrar()"><img id="lista" style="filter: invert(0);" src="img/dropdown.svg" alt="Elegir tema"></button>
+                </span>
+                <div class="temas" id="temas">
+                    <button class="day" onclick="day()">Sailor Day</button>
+                    <button class="night" onclick="night()">Sailor Night</button>
+                </div>
+            </div>
+            <div class="misGuifos"><a href="misGuifos.html">Mis Guifos</a></div>
+        </div>
+    </header>
+    <section class="mis">
+        <div class="barraDivision">Mis guifos</div>
+        <div class="lista"></div>
+    </section>
+    <script src="JavaScript/javascript.js"></script>
+    <script src="JavaScript/creacionGifs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.8/RecordRTC.js"></script>
+</body>
+</html>

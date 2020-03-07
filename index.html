@@ -12,7 +12,7 @@
     <div class="primer barraTitulo">¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de
       visitas: 12.765.803</div>
     <header>
-        <img id="logo" class="logo" onclick="inicio()" src="img/gifOF_logo.png" width="90" height="48" alt="Gif.OS">
+        <img id="logo" class="logo" src="img/gifOF_logo.png" width="90" height="48" alt="Gif.OS">
         <div class="nav">
             <button class="boton1 crear" onclick="crearGif()">Crear Guifos</button>
             <div class="elegirTemas">
@@ -24,7 +24,7 @@
                     <button class="night" onclick="night()">Sailor Night</button>
                 </div>
             </div>
-            <div class="misGuifos"><a href="#">Mis Guifos</a></div>
+            <div class="misGuifos"><a href="misGuifos.html">Mis Guifos</a></div>
         </div>
     </header>
     <section class="buscar">
@@ -35,11 +35,12 @@
                 <div id="buscador" onclick="buscarGifs()"><img id="lupa" src="img/lupa_inactive.svg" alt="Buscar"><span id="texto">Buscar</span></div>
             </form>
             <div id="sugerenciasBuscador" style="visibility: hidden;" class="sugerenciasBuscador">
-                <button class="opc">Resultado de búsqueda sugerido</button>
-                <button class="opc">Un resultado similar de búsqueda</button>
-                <button class="opc">Y otro más</button>
+                <button class="opc" onclick="volverBuscar('Cats')">Cats<img src="img/arrow.svg" alt="Cats"></button>
+                <button class="opc" onclick="volverBuscar('OMG!')">OMG!<img src="img/arrow.svg" alt="OMG!"></button>
+                <button class="opc" onclick="volverBuscar('What?')">What?<img src="img/arrow.svg" alt="What?"></button>
             </div>
         </div>
+        <div class="historial"></div>
     </section>
     <section class="sugerencia">
         <div class="barraDivision">Hoy te sugerimos:</div>
@@ -47,25 +48,25 @@
             <div class="gif">
                 <div class="barraTitulo">"Titulo Gif"<img src="img/button3.svg" alt="Botón eliminar" width="16" height="16"></div>
                 <div class="img">
-                    <button class="boton2">Ver más…</button>
+                    <button class="boton2" onclick="ver(1)">Ver más…</button>
                 </div>
             </div>
             <div class="gif">
                 <div class="barraTitulo">"Titulo Gif"<img src="img/button3.svg" alt="Botón eliminar" width="16" height="16"></div>
                 <div class="img">
-                    <button class="boton2">Ver más…</button>
+                    <button class="boton2" onclick="ver(2)">Ver más…</button>
                 </div>
             </div>
             <div class="gif">
                 <div class="barraTitulo">"Titulo Gif"<img src="img/button3.svg" alt="Botón eliminar" width="16" height="16"></div>
                 <div class="img">
-                    <button class="boton2">Ver más…</button>
+                    <button class="boton2" onclick="ver(3)">Ver más…</button>
                 </div>
             </div>
             <div class="gif">
                 <div class="barraTitulo">"Titulo Gif"<img src="img/button3.svg" alt="Botón eliminar" width="16" height="16"></div>
                 <div class="img">
-                    <button class="boton2">Ver más…</button>
+                    <button class="boton2" onclick="ver(4)">Ver más…</button>
                 </div>
             </div>
         </div>
@@ -75,19 +76,94 @@
         <div class="lista">
             <div class="gif">
                 <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
             </div>
             <div class="gif">
                 <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
             </div>
             <div class="gif">
                 <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
             </div>
             <div class="gif">
                 <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
             </div>
+            <div class="gif">
+                <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
+            </div>
+            <div class="gif">
+                <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
+            </div>
+            <div class="gif">
+                <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
+            </div>
+            <div class="gif">
+                <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
+            </div>
+            <div class="gif">
+                <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
+            </div>
+            <div class="gif">
+                <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
+            </div>
+            <div class="gif">
+                <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
+            </div>
+            <div class="gif">
+                <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
+            </div>
+            <div class="gif">
+                <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
+            </div>
+            <div class="gif">
+                <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
+            </div>
+            <div class="gif">
+                <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
+            </div>
+            <div class="gif">
+                <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
+            </div>
+            <div class="gif">
+                <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
+            </div>
+            <div class="gif">
+                <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
+            </div>
+            <div class="gif">
+                <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
+            </div>
+            <div class="gif">
+                <div class="img"></div>
+                <div class="tags barraTitulo">"#Tags"</div>
+            </div>            
         </div>
     </section>
+    <button class="boton1 top" onclick="inicio()"><img src="img/arrow.svg" alt="Ir al inicio"></button>
     <script src="JavaScript/javascript.js"></script>
     <script src="JavaScript/buscarGifs.js"></script>
+    <script>
+        if (window.location.pathname === "/") {
+            localStorage.clear();
+            localStorage.setItem("0",1)
+        }
+    </script>
 </body>
 </html>

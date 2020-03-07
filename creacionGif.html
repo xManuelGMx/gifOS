@@ -12,7 +12,7 @@
     <div class="primer barraTitulo">¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de
       visitas: 12.765.803</div>
     <header style="width: min-content;">
-        <img src="img/arrow.svg" alt="Atrás" class="atras"><img id="logo" class="logo" onclick="inicio()" src="img/gifOF_logo.png" width="90" height="48" alt="Gif.OS">
+        <img src="img/arrow.svg" alt="Atrás" class="atras" onclick="index()"><img id="logo" class="logo" src="img/gifOF_logo.png" width="90" height="48" alt="Gif.OS">
     </header>
     <section class="grabar">
         <div class="container" style="display: block;">
@@ -48,17 +48,34 @@
         </div>
         <div class="captura" style="display: none;">
             <div class="barraTitulo" style="margin: .2%; width: auto;">Un Chequeo Antes de Empezar<img src="img/button3.svg" alt="Botón eliminar" width="16" height="16"></div>
-            <video></video>
+            <div class="video">
+                <video></video>
+            </div>
             <div class="capturar">
                 <button onclick="grabar()"><img src="img/camera.svg" alt="Capturar"></button><button onclick="grabar()">Capturar</button>
+                <button class="repeat" onclick="repetir()">Repetir Captura</button><button class="upload" onclick="guardar()">Subir Guifo</button>
             </div>
-            <div class="duracion" style="display: none;">
-                <div id="screen">00:00:00:00</div>
+        </div>
+        <div class="exito" style="display: none;">
+            <div class="barraTitulo" style="margin: .2%; width: auto;">Guifo Subido Con Éxito<img src="img/button3.svg" alt="Botón eliminar" width="16" height="16"></div>
+            <div class="container">
+                <div class="vistaPrevia">
+                    <div class="img">
+                        <img alt="Gif creado">
+                    </div>
+                </div>
+                <div class="opciones">
+                    <span class="text">Guifo creado con éxito</span>
+                    <button class="copy" onclick="copy()">Copiar Enlace Guifo</button>
+                    <button class="download" onclick="download()">Descargar Guifo</button>
+                    <button class="finish" onclick="recargar()">Listo</button>
+                </div>
             </div>
         </div>
     </section>
     <section class="mis">
         <div class="barraDivision">Mis guifos</div>
+        <div class="lista"></div>
     </section>
     <script src="JavaScript/javascript.js"></script>
     <script src="JavaScript/creacionGifs.js"></script>

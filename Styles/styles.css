@@ -27,6 +27,7 @@
 }
 body{
   width: 100%;
+  max-width: 1440px;
   min-height: 100vh;
   background: var(--colorFondo);
 }
@@ -152,7 +153,6 @@ header{
 header img.logo{
   width: 6em;
   height: 3em;
-  cursor: pointer;
 }
 .nav{
   display: flex;
@@ -160,12 +160,15 @@ header img.logo{
   align-items: center;
   min-width: 450px;
 }
+section.buscar{
+  position: relative;
+}
 .buscador .barraTitulo{
   box-shadow: inset 2px 2px 0 0 var(--colorBorde2), inset -2px 0 0 var(--colorVentanaBorde1);
 }
 div.buscador{
   background: var(--fondoVentana);
-  max-width: 75em;
+  width: 100%;
   position: relative;
 }
 .buscador form{
@@ -205,7 +208,7 @@ div.buscador{
   cursor: pointer;
 }
 .sugerenciasBuscador{
-  max-width: 75em;
+  /* max-width: 75em; */
   width: 100%;
   position: absolute;
   height: 10em;
@@ -235,7 +238,25 @@ div.buscador{
 .sugerenciasBuscador .opc:not(:hover){
   background-color: #F0F0F0;
 }
-
+.sugerenciasBuscador .opc img{
+  transform: rotate(180deg) scale(.8) translate(-5px, -2px);
+}
+div.historial{
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+div.historial button{
+  margin: 10px 5px;
+  width: auto;
+  padding: 0 10px;
+}
+/* Sugerencias------------------------------------------------------------ */
 .barraDivision{
   background: #FFFAFE;
   border: 1px solid var(--colorDivisionBorde);
@@ -288,6 +309,22 @@ section.sugerencia .barraTitulo{
 section.sugerencia .img{
   box-shadow: inset -2px -2px 0 0 var(--colorGifBorde1), inset 2px 0 0 0 var(--colorBorde2);
 }
+div.tags{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: max-content;
+  display: none;
+  padding-left: 10px;
+}
+section.tendencias div.gif{
+  position: relative;
+}
+section.tendencias div.gif:hover div.tags{
+  display: inline-block;
+}
+
 .boton2{
   width: 5.06em;
   height: 2.13em;
@@ -381,7 +418,7 @@ div.container div.botones button{
   width: 9em;
   height: 2.25em;
 }
-div.container div.botones button.cancelar{
+div.container div.botones button.cancelar, button.copy, button.download{
   background: #FFF4FD;
   border: 1px solid #110038;
   box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
@@ -400,12 +437,12 @@ div.captura{
   flex-direction: column;
   position: relative;
 }
-div.captura .barraTitulo{
+div.captura .barraTitulo, div.exito .barraTitulo{
   display: flex;
   justify-content: space-between;
   padding: 0 2%;
 }
-div.captura video{
+div.captura div.video{
   width: 52.38em;
   height: 27.5em;
   background: #FFFFFF;
@@ -414,6 +451,14 @@ div.captura video{
   align-self: center;
   margin: .8%;
   background-color: black;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div.captura video{
+  width: 100%;
+  height: 100%;
 }
 div.captura div.capturar{
   width: max-content;
@@ -422,7 +467,7 @@ div.captura div.capturar{
   display: flex;
   position: relative;
 }
-div.captura div.capturar button{
+div.captura div.capturar button, button.finish{
   background: #F7C9F3;
   border: 1px solid #110038;
   box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
@@ -437,24 +482,113 @@ div.captura div.capturar button:nth-child(1){
 div.captura div.capturar button:nth-child(2){
   width: 9em;
 }
-div.captura div.duracion{
-  position: absolute;
-  bottom: 3.2%;
-  left: 1.6%;
-  width: 7.75em;
+div.captura div.capturar button.repeat{
+  width: 9em;
   height: 2.25em;
-  background: #FFFFFF;
-  border: 1px solid #979797;
-  box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: #FFF4FD;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+  margin-right: 2%;
+  display: none;
 }
-div.captura div.duracion #screen{
+div.captura div.capturar button.upload{
+  width: 9em;
+  height: 2.25em;
+  background: #F7C9F3;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+  display: none;
+}
+span.text{
+  font-weight: bold;
   font-size: 16px;
   color: #110038;
   letter-spacing: 0;
+  text-align: center;
   line-height: 22px;
-  width: 5.63em;
-  height: 1.38em;
+}
+div.exito{
+  width: 45.06em;
+  height: 24.44em;
+  background: #E6E6E6;
+  box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+}
+div.exito .barraTitulo{
+  padding: .5%;
+}
+div.exito div.container{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+button.finish{
+  width: 9em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 6%;
+}
+button.copy, button.download{
+  width: 16em;
+  height: 2.25em;
+  margin-bottom: 4%;
+}
+div.exito div.vistaPrevia{
+  width: 54%;
+}
+div.exito div.vistaPrevia .img{
+  width: 23.19em;
+  height: 12.25em;
+  background: #FFFFFF;
+  border: 1px solid #979797;
+  box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+  margin-left: 6%;
+  margin-top: 8%;
+}
+div.exito div.vistaPrevia img{
+  width: 22.81em;
+  height: 11.94em;
+}
+div.exito div.opciones{
+  width: 41%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 8%;
+}
+div.opciones span.text{
+  margin-bottom: 6%;
+}
+/* Botón para ir al inicio de la página */
+button.top{
+  position: fixed;
+  right: 25px;
+  bottom: 30px;
+  width: 49px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  
+  transition: 1s;
+  transform: translateY(100px);
+}
+button.top:hover::after, button.top:focus::after{
+  content: '';
+  border: 1px dotted #110038;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  border-radius: 50%;
+}
+button.top:hover, button.top:focus{
+  outline: 0px dotted #110038;
+}
+button.top img{
+  transform: rotate(90deg);
 }

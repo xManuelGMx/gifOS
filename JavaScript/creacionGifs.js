@@ -14,6 +14,7 @@ function capturar() {
     info.removeAttribute("style");
     let capturador = document.querySelector("div.captura");
     capturador.removeAttribute("style");
+
 }
 // Cancelar grabación :v
 function cancelar() {
@@ -32,7 +33,6 @@ function grabar() {
         }
     });
     recorder.startRecording();
-    start()
     let imagen = document.querySelector(".capturar button img");
     imagen.src = "img/recording_dark.svg";
     imagen.style.filter = "contrast(0) brightness(0);";
@@ -42,50 +42,138 @@ function grabar() {
     botones[1].innerHTML = "Listo";
     botones[0].setAttribute("onclick", "detener()");
     botones[1].setAttribute("onclick", "detener()");
-    document.querySelector("div.duracion").removeAttribute("style");
+
+    document.querySelector("div.captura div.barraTitulo").innerHTML = 'Capturando Tu Guifo<img src="img/button3.svg" alt="Botón eliminar" width="16" height="16">';
 }
+let blob;
+let gifActual;
+let form;
+let url;
 function detener() {
     recorder.stopRecording(function() {
-        let blob = recorder.blob;
-        let url = URL.createObjectURL(blob);
-        console.warn(blob);
-        console.warn(url);
+        blob = recorder.getBlob();
+        form = new FormData();
+        form.append('file', blob, 'myGif.gif');
+        gifActual = form.get('file');
+        url = URL.createObjectURL(gifActual);
+        
+        // Colocar gif
+        let img = document.createElement('img');
+        img.src = url;
+        img.style.position = "absolute";
+        img.style.height = "100%";
+
+        let divVideo = document.querySelector("div.video");
+        let video = document.querySelector("video")
+        divVideo.insertBefore(img, video);
+
+        document.querySelector("button.repeat").setAttribute("style", "display: block");
+        document.querySelector("button.upload").setAttribute("style", "display: block");
+        document.querySelector("div.captura div.capturar button:nth-child(1)").setAttribute("style", "display: none");
+        document.querySelector("div.captura div.capturar button:nth-child(2)").setAttribute("style", "display: none");
+
+        document.querySelector("div.captura div.barraTitulo").innerHTML = "Vista Previa";
     });
-    stop();
 }
-// Cronometro
+let arrKeys = [];
+// crear campo del gif
 window.onload = function() {
-    pantalla = document.getElementById("screen");
-}
-var isMarch = false; 
-var acumularTime = 0; 
-function start () {
-    if (isMarch == false) { 
-        timeInicial = new Date();
-        control = setInterval(cronometro,10);
-        isMarch = true;
+    for (let i = 1; i < localStorage.length; i++) {
+        let divLista = document.querySelector("div.lista");
+        let divGif = document.createElement("div");
+        divGif.setAttribute("class", "gif");
+        let divImg = document.createElement("div");
+        divImg.setAttribute("class", "img");
+        
+        let img = document.createElement('img');
+        img.style.position = "absolute";
+        img.style.width = "100%";
+        img.style.height = "100%";
+        img.style.zIndex = 0;
+        let key = localStorage.key(i)
+        img.src = localStorage.getItem(key);
+        divLista.insertBefore(divGif, document.querySelectorAll("div.gif")[0])
+        divGif.appendChild(divImg);
+        divImg.appendChild(img)
     }
-    console.log("Inicio");
 }
-function cronometro () { 
-    timeActual = new Date();
-    acumularTime = timeActual - timeInicial;
-    acumularTime2 = new Date();
-    acumularTime2.setTime(acumularTime); 
-    cc = Math.round(acumularTime2.getMilliseconds()/10);
-    ss = acumularTime2.getSeconds();
-    mm = acumularTime2.getMinutes();
-    hh = acumularTime2.getHours()-19;
-    if (cc < 10) {cc = "0"+cc;}
-    if (ss < 10) {ss = "0"+ss;} 
-    if (mm < 10) {mm = "0"+mm;}
-    if (hh < 10) {hh = "0"+hh;}
-    pantalla.innerHTML = hh+":"+mm+":"+ss+":"+cc;
+function repetir() {
+    // Reset
+    let imagen = document.querySelector(".capturar button img");
+    imagen.src = "img/camera.svg";
+    imagen.style.filter = "contrast(0) brightness(0);";
+    let botones = document.querySelectorAll(".capturar button");
+    botones[0].style.background = "#FF6161";
+    botones[1].style.background = "#FF6161";
+    botones[1].innerHTML = "Capturar";
+    botones[0].setAttribute("onclick", "grabar()");
+    botones[1].setAttribute("onclick", "grabar()");
+    document.querySelector("button.repeat").setAttribute("style", "display: none");
+    document.querySelector("button.upload").setAttribute("style", "display: none");
+    document.querySelector("div.captura div.capturar button:nth-child(1)").setAttribute("style", "display: block");
+    document.querySelector("div.captura div.capturar button:nth-child(2)").setAttribute("style", "display: block");
+    document.querySelector("div.video img").remove();
+    capturar();
 }
-function stop () { 
-    if (isMarch == true) {
-        clearInterval(control);
-        isMarch = false;
-    }
-    console.log("Fin");
+function guardar() {
+    let i = localStorage.getItem("0");
+    localStorage.setItem("Gif"+i,url);
+    localStorage.setItem("0",++i);
+    video.remove();
+    // crear campo del gif
+    let divLista = document.querySelector("div.lista");
+    let divGif = document.createElement("div");
+    divGif.setAttribute("class", "gif");
+    let divImg = document.createElement("div");
+    divImg.setAttribute("class", "img");
+    // divLista.appendChild(divGif);
+    // divGif.appendChild(divImg);
+
+    document.querySelector("div.captura div.barraTitulo").innerHTML = 'Subiendo Guifo<img src="img/button3.svg" alt="Botón eliminar" width="16" height="16">';
+    let divVideo = document.querySelector("div.video");
+    let img = document.querySelector("div.video img");
+    img.src = "img/globe_img.png";
+    img.style.width = "auto";
+    img.style.height = "3em";
+    img.style.opacity = "1";
+    img.style.transform = "translateY(-45px)";
+    divVideo.setAttribute("style", "background-color: white");
+    document.querySelector("button.upload").remove();
+    document.querySelector("button.repeat").innerHTML = "Cancelar";
+
+    let span = document.createElement("span");
+    span.classList.add("text");
+    span.innerHTML = "Estamos subiendo tu guifo…";
+    document.querySelector("div.video").appendChild(span);
+
+    setTimeout(() => {
+        document.querySelector("div.captura").remove();
+        document.querySelector("div.exito").removeAttribute("style");
+        document.querySelector("div.vistaPrevia div.img img").src = url;
+    },3000);
+}
+function copy() {
+    // Crea un campo de texto "oculto"
+    var aux = document.createElement("input");
+
+    // Asigna el contenido del elemento especificado al valor del campo
+    aux.setAttribute("value", url);
+
+    // Añade el campo a la página
+    document.body.appendChild(aux);
+
+    // Selecciona el contenido del campo
+    aux.select();
+
+    // Copia el texto seleccionado
+    document.execCommand("copy");
+
+    // Elimina el campo de la página
+    document.body.removeChild(aux);
+}
+function download() {
+    alert("Proximamente!!")
+}
+function recargar() {
+    window.location.reload();
 }
