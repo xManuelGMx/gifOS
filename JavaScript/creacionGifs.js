@@ -91,10 +91,12 @@ window.onload = function() {
         img.style.height = "100%";
         img.style.zIndex = 0;
         let key = localStorage.key(i)
-        img.src = localStorage.getItem(key);
-        divLista.insertBefore(divGif, document.querySelectorAll("div.gif")[0])
-        divGif.appendChild(divImg);
-        divImg.appendChild(img)
+        if (key.slice(0,3) === "Gif") {
+            img.src = localStorage.getItem(key);
+            divLista.insertBefore(divGif, document.querySelectorAll("div.gif")[0])
+            divGif.appendChild(divImg);
+            divImg.appendChild(img)
+        }
     }
 }
 function repetir() {
