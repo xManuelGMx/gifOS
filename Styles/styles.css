@@ -171,7 +171,7 @@ div.buscador{
   width: 100%;
   position: relative;
 }
-.buscador form{
+.buscador .form{
   padding: 1.5%;
   display: flex;
   justify-content: space-between;
@@ -279,7 +279,7 @@ div.lista{
   justify-content: space-between;
   align-items: center;
 }
-div.gif{
+.gif{
   width: 18em;
   height: 19.56em;
   background: var(--fondoVentana);
@@ -305,6 +305,13 @@ section.sugerencia .barraTitulo{
   justify-content: space-between;
   padding: 0 2%;
   box-shadow: inset -2px 0 0 0 var(--colorGifBorde1), inset 2px 2px 0 0 var(--colorBorde2);
+}
+.sugerencia .lista{
+  flex-wrap: nowrap;
+}
+.sugerencia .gif{
+  width: 18em;
+  height: 19.56em;
 }
 section.sugerencia .img{
   box-shadow: inset -2px -2px 0 0 var(--colorGifBorde1), inset 2px 0 0 0 var(--colorBorde2);
@@ -591,4 +598,32 @@ button.top:hover, button.top:focus{
 }
 button.top img{
   transform: rotate(90deg);
+}
+/* media queries */
+@media screen and (max-width: 1390px) {
+  .sugerencia .lista{
+    flex-wrap: wrap;
+  }
+  .sugerencia .gif,.gif{
+    width: 17em;
+    height: 18.56em;
+  }
+}
+@media screen and (max-width: 1315px){
+  .sugerencia .gif,.gif{
+    width: 15em;
+    height: 16.56em;
+  }
+}
+@media screen and (max-width: 1160px){
+  .sugerencia .gif,.gif{
+    width: 13em;
+    height: 14.56em;
+  }
+}
+@media screen and (max-width: 1006px){
+  .sugerencia .gif,.gif{
+    width: 12em;
+    height: 13.56em;
+  }
 }

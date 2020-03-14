@@ -28,7 +28,7 @@ function ver(numSug) {
 // Volver a buscar (historial)
 function volverBuscar(e) {
     input = e;
-    document.forms.buscador.buscar.value = "";
+    document.querySelector("input").value = "";
     buscarGifs();
 }
 window.onload = function(){
@@ -172,8 +172,8 @@ window.onload = function(){
 let input;
 // Buscador de gifs
 async function buscarGifs(){
-    if (document.forms.buscador.buscar.value.length > 0) { 
-        input = document.forms.buscador.buscar.value;
+    if (document.querySelector("input").value.length > 0) { 
+        input = document.querySelector("input").value;
     }
     guardar();
     document.querySelector(".tendencias").scrollIntoView({
@@ -202,3 +202,8 @@ async function buscarGifs(){
     })
     .catch(console.error);
 }
+document.querySelector("input").addEventListener("keyup", e => {
+    if (e.key === "Enter"){
+        buscarGifs();
+    }
+})

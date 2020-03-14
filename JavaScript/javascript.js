@@ -54,7 +54,7 @@ function night(){
     // ---Imágenes------------------------------------------------------------------
     document.getElementById("logo").src = "img/gifOF_logo_dark.png";
     document.getElementById("lista").style.setProperty('filter',"invert(1)");
-    let input = document.forms.buscador.buscar.value;
+    let input = document.querySelector("input").value;
     if(input.length > 0){
         document.getElementById("lupa").setAttribute("src", "img/lupa_light.svg");
     }else{
@@ -102,7 +102,7 @@ function day() {
     // ---Imágenes------------------------------------------------------------------
     document.getElementById("logo").src = "img/gifOF_logo.png";
     document.getElementById("lista").style.setProperty('filter',"invert(0)");
-    let input = document.forms.buscador.buscar.value;
+    let input = document.querySelector("input").value;
     if(input.length > 0){
         document.getElementById("lupa").setAttribute("src", "img/lupa.svg");
     }else{
@@ -111,7 +111,7 @@ function day() {
 }
 // Mostar sugerencias de búsqueda
 function comprobar(){
-    let input = document.forms.buscador.buscar.value;
+    let input = document.querySelector("input").value;
     if(input.length > 0){
         document.getElementById("sugerenciasBuscador").style.setProperty('visibility',"visible");
         document.getElementById("buscador").style.setProperty('background-color',"var(--colorBoton1)");
