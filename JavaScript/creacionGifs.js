@@ -29,7 +29,7 @@ function grabar() {
         width: 360,
         hidden: 240,
         onGifRecordingStarted: () => {
-            console.log('started');
+            console.log('Inicio');
         }
     });
     recorder.startRecording();
@@ -74,12 +74,16 @@ function detener() {
 
         document.querySelector("div.captura div.barraTitulo").innerHTML = "Vista Previa";
     });
+    console.log("Fin");
 }
-let arrKeys = [];
 // crear campo del gif
-window.onload = function() {
-    for (let i = 1; i < localStorage.length; i++) {
-        let divLista = document.querySelector("div.lista");
+setTimeout(() => {
+    links = (localStorage.links).split(",");
+    if (links[links.length - 1] === "") {
+        links.pop();
+    }
+    for (let i = 0; i < links.length; i++) {
+        let divLista = document.querySelector("section.mis div.lista");
         let divGif = document.createElement("div");
         divGif.setAttribute("class", "gif");
         let divImg = document.createElement("div");
@@ -90,15 +94,14 @@ window.onload = function() {
         img.style.width = "100%";
         img.style.height = "100%";
         img.style.zIndex = 0;
-        let key = localStorage.key(i)
-        if (key.slice(0,3) === "Gif") {
-            img.src = localStorage.getItem(key);
-            divLista.insertBefore(divGif, document.querySelectorAll("div.gif")[0])
-            divGif.appendChild(divImg);
-            divImg.appendChild(img)
-        }
+        img.alt = i+1;
+        
+        img.src = links[i];
+        divLista.insertBefore(divGif, document.querySelectorAll("section.mis div.gif")[0])
+        divGif.appendChild(divImg);
+        divImg.appendChild(img)
     }
-}
+},0)
 function repetir() {
     // Reset
     let imagen = document.querySelector(".capturar button img");
@@ -117,59 +120,56 @@ function repetir() {
     document.querySelector("div.video img").remove();
     capturar();
 }
+let links;
 function guardar() {
-    let i = localStorage.getItem("0");
-    localStorage.setItem("Gif"+i,url);
-    localStorage.setItem("0",++i);
-    video.remove();
-    // crear campo del gif
-    let divLista = document.querySelector("div.lista");
-    let divGif = document.createElement("div");
-    divGif.setAttribute("class", "gif");
-    let divImg = document.createElement("div");
-    divImg.setAttribute("class", "img");
-    // divLista.appendChild(divGif);
-    // divGif.appendChild(divImg);
+    if (window.location.pathname.slice(-17) === "/creacionGif.html") {
+        links = (localStorage.links).split(",");
+        links.unshift(url);
+        localStorage.setItem("links", links);
+        video.remove();
+        // crear campo del gif
+        let divLista = document.querySelector("div.lista");
+        let divGif = document.createElement("div");
+        divGif.setAttribute("class", "gif");
+        let divImg = document.createElement("div");
+        divImg.setAttribute("class", "img");
+    
+        document.querySelector("div.captura div.barraTitulo").innerHTML = 'Subiendo Guifo<img src="img/button3.svg" alt="Botón eliminar" width="16" height="16">';
+        let divVideo = document.querySelector("div.video");
+        let img = document.querySelector("div.video img");
+        img.src = "img/globe_img.png";
+        img.style.width = "auto";
+        img.style.height = "3em";
+        img.style.opacity = "1";
+        img.style.transform = "translateY(-45px)";
+        divVideo.setAttribute("style", "background-color: white");
+        document.querySelector("button.upload").remove();
+        document.querySelector("button.repeat").innerHTML = "Cancelar";
+    
+        let span = document.createElement("span");
+        span.classList.add("text");
+        span.innerHTML = "Estamos subiendo tu guifo…";
+        document.querySelector("div.video").appendChild(span);
+    
+        setTimeout(() => {
+            document.querySelector("div.captura").remove();
+            document.querySelector("div.exito").removeAttribute("style");
+            document.querySelector("div.vistaPrevia div.img img").src = url;
+        },3000);
 
-    document.querySelector("div.captura div.barraTitulo").innerHTML = 'Subiendo Guifo<img src="img/button3.svg" alt="Botón eliminar" width="16" height="16">';
-    let divVideo = document.querySelector("div.video");
-    let img = document.querySelector("div.video img");
-    img.src = "img/globe_img.png";
-    img.style.width = "auto";
-    img.style.height = "3em";
-    img.style.opacity = "1";
-    img.style.transform = "translateY(-45px)";
-    divVideo.setAttribute("style", "background-color: white");
-    document.querySelector("button.upload").remove();
-    document.querySelector("button.repeat").innerHTML = "Cancelar";
-
-    let span = document.createElement("span");
-    span.classList.add("text");
-    span.innerHTML = "Estamos subiendo tu guifo…";
-    document.querySelector("div.video").appendChild(span);
-
-    setTimeout(() => {
-        document.querySelector("div.captura").remove();
-        document.querySelector("div.exito").removeAttribute("style");
-        document.querySelector("div.vistaPrevia div.img img").src = url;
-    },3000);
+    }
 }
 function copy() {
     // Crea un campo de texto "oculto"
     var aux = document.createElement("input");
-
     // Asigna el contenido del elemento especificado al valor del campo
     aux.setAttribute("value", url);
-
     // Añade el campo a la página
     document.body.appendChild(aux);
-
     // Selecciona el contenido del campo
     aux.select();
-
     // Copia el texto seleccionado
     document.execCommand("copy");
-
     // Elimina el campo de la página
     document.body.removeChild(aux);
 }
@@ -178,4 +178,14 @@ function download() {
 }
 function recargar() {
     window.location.reload();
+}
+const heading = new Headers();
+const abortController = new AbortController();
+async function subir() {
+    await fetch("upload.giphy.com/v1/gifs?api_key=cg4axQvsF7TgCHqbxkOJc9bXr5n4W0Cr", {
+        method: "POST",
+        headers: heading,
+        body: gifActual,
+        cors: "cors",
+        signal: abortController.signal})
 }

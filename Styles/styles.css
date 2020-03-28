@@ -568,6 +568,10 @@ div.exito div.opciones{
 div.opciones span.text{
   margin-bottom: 6%;
 }
+section.mis div.lista{
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+}
 /* Botón para ir al inicio de la página */
 button.top{
   position: fixed;

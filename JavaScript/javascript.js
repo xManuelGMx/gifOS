@@ -140,7 +140,7 @@ function crearGif() {
 }
 // Devuelta al index.html
 function index() {
-    window.location = "index.html";
+    window.location = "inicio.html";
     console.log("inicio");
 }
 function inicio() {
@@ -166,11 +166,11 @@ function guardar() {
 }
 window.addEventListener('scroll', () => {
     if (window.scrollY > 200) {
-        if (window.location.pathname.slice(-11) === "/index.html" || window.location.pathname === "/") {
+        if (window.location.pathname.slice(-12) === "/inicio.html") {
             document.querySelector("button.top").style.transform = "translateY(0px)"
         }
     }else{
-        if (window.location.pathname.slice(-11) === "/index.html" || window.location.pathname === "/") {
+        if (window.location.pathname.slice(-12) === "/inicio.html") {
             document.querySelector("button.top").style.transform = "translateY(100px)"
         }
     }
