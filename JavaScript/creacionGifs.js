@@ -79,6 +79,7 @@ function detener() {
 // crear campo del gif
 window.onload = () => {
     links = (localStorage.links).split(",");
+	
     for (let i = 0; i < links.length; i++) {
         let divLista = document.querySelector("section.mis div.lista");
         let divGif = document.createElement("div");
@@ -121,10 +122,6 @@ let links;
 async function guardar() {
     if (window.location.pathname.slice(-17) === "/creacionGif.html") {
         links = (localStorage.links).split(",");
-        await fetch("https://upload.giphy.com/v1/gifs?api_key=p2qSK25QMBISYURSDjGYHQUzTn1gSLYD", {method: "POST", body: form})
-        .then(res => res.json())
-        .then(json => json.data.id)
-        .then(id => links.push(id))
         if (links[0] === "") {
             links.shift();
         }
