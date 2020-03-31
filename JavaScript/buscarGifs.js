@@ -31,7 +31,7 @@ function volverBuscar(e) {
     document.querySelector("input").value = "";
     buscarGifs();
 }
-window.onload = function(){
+window.onload = () => {
     // Trending------------------
     // Obtener gifs
     fetch("https://api.giphy.com/v1/gifs/trending?api_key=p2qSK25QMBISYURSDjGYHQUzTn1gSLYD&limit=20")

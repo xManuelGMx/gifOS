@@ -77,11 +77,8 @@ function detener() {
     console.log("Fin");
 }
 // crear campo del gif
-setTimeout(() => {
+window.onload = () => {
     links = (localStorage.links).split(",");
-    if (links[links.length - 1] === "") {
-        links.pop();
-    }
     for (let i = 0; i < links.length; i++) {
         let divLista = document.querySelector("section.mis div.lista");
         let divGif = document.createElement("div");
@@ -95,13 +92,13 @@ setTimeout(() => {
         img.style.height = "100%";
         img.style.zIndex = 0;
         img.alt = i+1;
+        img.src = "https://media.giphy.com/media/"+links[i]+"/giphy.gif";
         
-        img.src = links[i];
         divLista.insertBefore(divGif, document.querySelectorAll("section.mis div.gif")[0])
         divGif.appendChild(divImg);
         divImg.appendChild(img)
     }
-},0)
+}
 function repetir() {
     // Reset
     let imagen = document.querySelector(".capturar button img");
@@ -121,18 +118,18 @@ function repetir() {
     capturar();
 }
 let links;
-function guardar() {
+async function guardar() {
     if (window.location.pathname.slice(-17) === "/creacionGif.html") {
         links = (localStorage.links).split(",");
-        links.unshift(url);
+        await fetch("https://upload.giphy.com/v1/gifs?api_key=p2qSK25QMBISYURSDjGYHQUzTn1gSLYD", {method: "POST", body: form})
+        .then(res => res.json())
+        .then(json => json.data.id)
+        .then(id => links.push(id))
+        if (links[0] === "") {
+            links.shift();
+        }
         localStorage.setItem("links", links);
         video.remove();
-        // crear campo del gif
-        let divLista = document.querySelector("div.lista");
-        let divGif = document.createElement("div");
-        divGif.setAttribute("class", "gif");
-        let divImg = document.createElement("div");
-        divImg.setAttribute("class", "img");
     
         document.querySelector("div.captura div.barraTitulo").innerHTML = 'Subiendo Guifo<img src="img/button3.svg" alt="Botón eliminar" width="16" height="16">';
         let divVideo = document.querySelector("div.video");
@@ -178,14 +175,4 @@ function download() {
 }
 function recargar() {
     window.location.reload();
-}
-const heading = new Headers();
-const abortController = new AbortController();
-async function subir() {
-    await fetch("upload.giphy.com/v1/gifs?api_key=cg4axQvsF7TgCHqbxkOJc9bXr5n4W0Cr", {
-        method: "POST",
-        headers: heading,
-        body: gifActual,
-        cors: "cors",
-        signal: abortController.signal})
 }
