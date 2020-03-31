@@ -79,7 +79,9 @@ function detener() {
 // crear campo del gif
 window.onload = () => {
     links = (localStorage.links).split(",");
-	
+	if (links[0] === "") {
+        links.shift();
+    }
     for (let i = 0; i < links.length; i++) {
         let divLista = document.querySelector("section.mis div.lista");
         let divGif = document.createElement("div");
