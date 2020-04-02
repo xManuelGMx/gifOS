@@ -1,7 +1,7 @@
-let sug1 = "Link";
-let sug2 = "Avengers";
-let sug3 = "Halo";
-let sug4 = "Assassin's Creed";
+let sug1 = "Cats";
+let sug2 = "bird";
+let sug3 = "hello";
+let sug4 = "hug";
 // Ver más
 function ver(numSug) {
     switch (numSug) {

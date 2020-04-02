@@ -78,28 +78,26 @@ function detener() {
 }
 // crear campo del gif
 window.onload = () => {
-    links = (localStorage.links).split(",");
-	if (links[0] === "") {
-        links.shift();
-    }
-    for (let i = 0; i < links.length; i++) {
-        let divLista = document.querySelector("section.mis div.lista");
-        let divGif = document.createElement("div");
-        divGif.setAttribute("class", "gif");
-        let divImg = document.createElement("div");
-        divImg.setAttribute("class", "img");
-        
-        let img = document.createElement('img');
-        img.style.position = "absolute";
-        img.style.width = "100%";
-        img.style.height = "100%";
-        img.style.zIndex = 0;
-        img.alt = i+1;
-        img.src = "https://media.giphy.com/media/"+links[i]+"/giphy.gif";
-        
-        divLista.insertBefore(divGif, document.querySelectorAll("section.mis div.gif")[0])
-        divGif.appendChild(divImg);
-        divImg.appendChild(img)
+    for (let i = 0; i < localStorage.length; i++) {
+        if (localStorage.key(i) !== "cont") {
+            let divLista = document.querySelector("section.mis div.lista");
+            let divGif = document.createElement("div");
+            divGif.setAttribute("class", "gif");
+            let divImg = document.createElement("div");
+            divImg.setAttribute("class", "img");
+            
+            let img = document.createElement('img');
+            img.style.position = "absolute";
+            img.style.width = "100%";
+            img.style.height = "100%";
+            img.style.zIndex = 0;
+            img.alt = "Gif"+(i+1);
+            img.src = "https://media.giphy.com/media/"+localStorage.getItem("Gif"+i)+"/giphy.gif";
+            
+            divLista.insertBefore(divGif, document.querySelectorAll("section.mis div.gif")[0])
+            divGif.appendChild(divImg);
+            divImg.appendChild(img)
+        }
     }
 }
 function repetir() {
@@ -120,16 +118,17 @@ function repetir() {
     document.querySelector("div.video img").remove();
     capturar();
 }
-let links;
-async function guardar() {
+let cont = localStorage.getItem("cont")
+function guardar() {
     if (window.location.pathname.slice(-17) === "/creacionGif.html") {
-        links = (localStorage.links).split(",");
-        if (links[0] === "") {
-            links.shift();
-        }
-        localStorage.setItem("links", links);
+        fetch("https://upload.giphy.com/v1/gifs?api_key=p2qSK25QMBISYURSDjGYHQUzTn1gSLYD", {method: "POST", body: form})
+        .then(res => res.json())
+        .then(json => json.data.id)
+        .then(id => localStorage.setItem("Gif"+cont,id))
+        .catch(err => console.error("Error al hacer upload: "+err.message))
+        localStorage.setItem("cont", ++cont)
+
         video.remove();
-    
         document.querySelector("div.captura div.barraTitulo").innerHTML = 'Subiendo Guifo<img src="img/button3.svg" alt="Botón eliminar" width="16" height="16">';
         let divVideo = document.querySelector("div.video");
         let img = document.querySelector("div.video img");
